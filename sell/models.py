@@ -19,6 +19,8 @@ class Sell(models.Model):
 class SellItem(models.Model):
     sell = models.ForeignKey(Sell, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, verbose_name=("Mahsulot"), on_delete=models.CASCADE)
+    price = models.IntegerField(("Sotilgan narx"))
+
 
     class Meta:
         verbose_name = ("SellItem")
