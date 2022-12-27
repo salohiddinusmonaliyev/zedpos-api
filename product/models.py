@@ -4,7 +4,6 @@ from partner.models import Partner
 
 # Create your models here.
 class Product(models.Model):
-    code = models.IntegerField(("Mahsulot kodi"), unique=True)
     title = models.CharField(("Mahsulot nomi"), max_length=50)
     hajmi = models.IntegerField(("Bitta mahsulot hajmi"))
     nechta = models.IntegerField(("Mahsulot nechta"))
