@@ -5,7 +5,7 @@ from partner.models import Partner
 # Create your models here.
 class Product(models.Model):
     title = models.CharField(("Mahsulot nomi"), max_length=50)
-    hajmi = models.IntegerField(("Bitta mahsulot hajmi"))
+    hajmi = models.CharField(("Bitta mahsulot hajmi"), max_length=20)
     nechta = models.IntegerField(("Mahsulot nechta"))
     narx = models.IntegerField(("Narxi"))
 
