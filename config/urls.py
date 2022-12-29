@@ -22,6 +22,7 @@ from product.views import *
 from clients.views import *
 from sell.views import *
 from partner.views import *
+from returned. views import ReturnedViewSet
 
 router = DefaultRouter()
 router.register('product', ProductViewSet, basename='product')
@@ -31,6 +32,7 @@ router.register('sell', SellViewSet, basename="sell")
 router.register("sellitem", SellItemViewSet, basename="sellitem")
 router.register("partner", PartnerViewSet, basename="partner")
 router.register("harajat", HarajatViewSet, basename="harajat")
+router.register("returned", ReturnedViewSet, basename="returned")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
