@@ -17,3 +17,4 @@ class SellItemViewSet(ModelViewSet):
 class HarajatViewSet(ModelViewSet):
     queryset = Harajat.objects.all()
     serializer_class = HarajatSerializer
+# shu bilan boldimi boshga heshnima kerak emas togrimi?    
