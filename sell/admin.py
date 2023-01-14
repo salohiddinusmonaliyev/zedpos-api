@@ -6,3 +6,4 @@ from .models import *
 admin.site.register(Sell)
 admin.site.register(SellItem)
 admin.site.register(Harajat)
+admin.site.register(HarajatCategory)
