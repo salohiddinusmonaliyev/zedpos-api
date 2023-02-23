@@ -3,4 +3,4 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class CustomUser(AbstractUser):
-    age = models.IntegerField(("Yosh"), null=True)
+    ph_number = models.CharField(("Phone number"), max_length=50)

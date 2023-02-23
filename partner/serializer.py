@@ -2,7 +2,12 @@ from rest_framework.serializers import ModelSerializer
 
 from .models import *
 
-class PartnerSerializer(ModelSerializer):
+class DealerSerializer(ModelSerializer):
     class Meta:
-        model = Partner
+        model = Dealer
+        fields = "__all__"
+
+class DealerOutputSerializer(ModelSerializer):
+    class Meta:
+        model = DealerOutput
         fields = "__all__"

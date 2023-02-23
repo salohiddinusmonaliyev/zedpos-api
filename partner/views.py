@@ -6,6 +6,6 @@ from .models import *
 from . serializer import *
 
 # Create your views here.
-class PartnerViewSet(ModelViewSet):
-    queryset = Partner.objects.all()
-    serializer_class = PartnerSerializer
+class DealerViewSet(ModelViewSet):
+    queryset = Dealer.objects.all()
+    serializer_class = DealerSerializer

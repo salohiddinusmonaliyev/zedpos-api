@@ -31,14 +31,13 @@ from drf_yasg import openapi
 
 router = DefaultRouter()
 router.register('product', ProductViewSet, basename='product')
-router.register("new-product", NewProductViewSet, basename="newproduct")
+router.register("warehouse", WarehouseViewSet, basename="warehouse")
 router.register("client", ClientViewSet, basename="client")
 router.register('sell', SellViewSet, basename="sell")
 router.register("sellitem", SellItemViewSet, basename="sellitem")
-router.register("partner", PartnerViewSet, basename="partner")
-router.register("harajat", HarajatViewSet, basename="harajat")
-# router.register("returned", ReturnedViewSet, basename="returned")
-router.register('users', UserViewSet, basename="users")
+router.register("dealer", DealerViewSet, basename="dealer")
+router.register("cost", CostViewSet, basename="cost")
+router.register('staffs', UserViewSet, basename="staffs")
 
 
 
@@ -62,6 +61,8 @@ urlpatterns = [
     path('swagger(?P<format>\.json|\.yaml)', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-    path("tolov/<int:a>/", Tolov.as_view()),
-    path("home/<str:a>/<str:b>/", HomeView.as_view()),
+    path("payment/<int:a>/", Payment.as_view()),
+    path("home/<str:a>/<str:b>/", MainView.as_view()),
+    path("home/", MainView.as_view()),
+    path("new-product/<int:p>/<int:q>/", NewProduct.as_view())
 ]

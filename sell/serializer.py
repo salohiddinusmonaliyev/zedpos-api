@@ -13,7 +13,7 @@ class SellItemSerializer(ModelSerializer):
         model = SellItem
         fields = "__all__"
 
-class HarajatSerializer(ModelSerializer):
+class CostSerializer(ModelSerializer):
     class Meta:
-        model = Harajat
+        model = Cost
         fields = "__all__"
