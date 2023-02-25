@@ -37,7 +37,7 @@ router.register('sell', SellViewSet, basename="sell")
 router.register("sellitem", SellItemViewSet, basename="sellitem")
 router.register("dealer", DealerViewSet, basename="dealer")
 router.register("cost", CostViewSet, basename="cost")
-router.register('staffs', UserViewSet, basename="staffs")
+router.register('staff', UserViewSet, basename="staff")
 
 
 

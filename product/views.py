@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from rest_framework import status
+from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from .models import *
@@ -9,6 +11,13 @@ from .serializer import *
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+
+    # def update(self, request, *args, **kwargs):
+    #     instance = self.get_object()
+    #     serializer = ProductSerializer(instance=instance, data=request.data)
+    #     serializer.is_valid(raise_exception=True)
+    #     serializer.save()
+    #     return Response(serializer.data)
 
 class WarehouseViewSet(ModelViewSet):
     queryset = Warehouse.objects.all()
