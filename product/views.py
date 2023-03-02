@@ -22,3 +22,7 @@ class ProductViewSet(ModelViewSet):
 class WarehouseViewSet(ModelViewSet):
     queryset = Warehouse.objects.all()
     serializer_class = WarehouseSerializer
+
+class MeasureViewSet(ModelViewSet):
+    queryset = Measure.objects.all()
+    serializer_class = MeasureSerializer

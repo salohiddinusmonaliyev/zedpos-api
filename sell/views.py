@@ -18,8 +18,10 @@ class SellItemViewSet(ModelViewSet):
     serializer_class = SellItemSerializer
 
 class CostViewSet(ModelViewSet):
+
     queryset = Cost.objects.all()
     serializer_class = CostSerializer
+
 
 class Payment(APIView):
 
@@ -29,7 +31,8 @@ class Payment(APIView):
         products = ""
         summa = 0
         for i in data:
-            total = (int(i.product_id.price)*int(i.quantity))+summa
+            product_price = i.product_id.price
+            total = (product_price*i.quantity)+summa
             foyda = (int(i.product_id.incoming_price) * int(i.quantity))
             foyda = total - foyda
             discount = 0
@@ -42,4 +45,10 @@ class Payment(APIView):
         s.total_price = total
         s.save()
 
-        return Response(f"Olingan mahsulotlar: {products}; Umumiy hisob: {total}; So'ngi hisob: {summa-discount}; Chegirmasiz foyda: {foyda}; Chegirmali foyda: {foyda-discount};", status=status.HTTP_200_OK)
+        return Response({
+        "Olingan_mahsulotlar" : products,
+        "Umumiy_hisob": total,
+        "So'ngi hisob": summa-discount,
+        "Chegirmasiz_foyda": foyda,
+        "Chegirmali_foyda": foyda-discount,
+        }, status=status.HTTP_200_OK)

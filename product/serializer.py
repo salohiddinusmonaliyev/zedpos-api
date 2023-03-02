@@ -11,3 +11,9 @@ class WarehouseSerializer(ModelSerializer):
     class Meta:
         model = Warehouse
         fields = "__all__"
+
+class MeasureSerializer(ModelSerializer):
+    class Meta:
+        model = Measure
+        fields = "__all__"
+

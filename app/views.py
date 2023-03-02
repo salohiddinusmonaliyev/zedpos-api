@@ -4,6 +4,7 @@ from rest_framework.response import Response
 
 from product.models import *
 from clients.models import *
+from product.serializer import ProductSerializer
 from sell.models import *
 import datetime
 
@@ -92,3 +93,8 @@ class NewProduct(APIView):
         return Response("qo'shildi")
 
 
+class Archive(APIView):
+    def get(self, request):
+        product = Product.objects.filter(is_active=False)
+        ser = ProductSerializer(product, many=True)
+        return Response(ser.data)

@@ -32,6 +32,7 @@ from drf_yasg import openapi
 router = DefaultRouter()
 router.register('product', ProductViewSet, basename='product')
 router.register("warehouse", WarehouseViewSet, basename="warehouse")
+router.register("measure", MeasureViewSet, basename="measure")
 router.register("client", ClientViewSet, basename="client")
 router.register('sell', SellViewSet, basename="sell")
 router.register("sellitem", SellItemViewSet, basename="sellitem")
@@ -64,5 +65,6 @@ urlpatterns = [
     path("payment/<int:a>/", Payment.as_view()),
     path("home/<str:a>/<str:b>/", MainView.as_view()),
     path("home/", MainView.as_view()),
-    path("new-product/<int:p>/<int:q>/", NewProduct.as_view())
+    path("new-product/<int:p>/<int:q>/", NewProduct.as_view()),
+    path("archive/", Archive.as_view()),
 ]

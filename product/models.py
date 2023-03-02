@@ -3,12 +3,17 @@ from django.db import models
 from partner.models import Dealer
 
 # Create your models here.
+
+
+class Measure(models.Model):
+    name = models.CharField(max_length=50)
+
 class Product(models.Model):
     code = models.IntegerField(max_length=10000, null=True)
     name = models.CharField(max_length=50)
     incoming_price = models.IntegerField()
     price = models.IntegerField()
-    measure = models.CharField(("O'lchov birligi"), max_length=20, null=True, blank=True)
+    measure = models.ForeignKey(Measure, on_delete=models.CASCADE, null=True, blank=True)
     quantity = models.IntegerField(null=True)
     is_active = models.BooleanField(default=True)
 
