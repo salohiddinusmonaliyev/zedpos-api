@@ -1,5 +1,6 @@
-from django.db import models
 from clients.models import Client
+
+from django.db import models
 
 from product.models import Product
 
@@ -23,6 +24,16 @@ class SellItem(models.Model):
 
     def __str__(self):
         return f"{self.id} {self.product_id.name} {self.sell_id.time}"
+
+
+
+class ClientPay(models.Model):
+    datatime = models.DateTimeField()
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    sell_id = models.ForeignKey(Sell, on_delete=models.CASCADE)
+    payment = models.IntegerField()
+    comment = models.CharField(max_length=200)
+
 
 class CostCategory(models.Model):
     name = models.CharField(max_length=100)

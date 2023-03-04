@@ -42,6 +42,7 @@ router.register('staff', UserViewSet, basename="staff")
 
 
 
+
 schema_view = get_schema_view(
    openapi.Info(
       title="Snippets API",
@@ -67,4 +68,5 @@ urlpatterns = [
     path("home/", MainView.as_view()),
     path("new-product/<int:p>/<int:q>/", NewProduct.as_view()),
     path("archive/", Archive.as_view()),
+    path("pay-client/", ClientPayView.as_view()),
 ]
