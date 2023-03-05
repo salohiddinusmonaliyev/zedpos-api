@@ -17,3 +17,8 @@ class CostSerializer(ModelSerializer):
     class Meta:
         model = Cost
         fields = "__all__"
+
+class PaymentSerializer(ModelSerializer):
+    class Meta:
+        model = Payment
+        fields = "__all__"

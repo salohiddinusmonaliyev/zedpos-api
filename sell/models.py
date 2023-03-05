@@ -17,13 +17,13 @@ class Sell(models.Model):
 
 class SellItem(models.Model):
     sell_id = models.ForeignKey(Sell, on_delete=models.CASCADE)
-    product_id = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     discount = models.IntegerField(null=True, default=0)
     date = models.DateTimeField(null=True)
-    quantity = models.IntegerField(null=True)
+    quantity = models.IntegerField()
 
     def __str__(self):
-        return f"{self.id} {self.product_id.name} {self.sell_id.time}"
+        return f"{self.id} {self.product.name} {self.sell_id.time}"
 
 
 
@@ -49,3 +49,10 @@ class Cost(models.Model):
 
     def __str__(self):
         return f"{self.worker.username} | {self.money}"
+
+
+class Payment(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True, blank=True, default=None)
+    sell_id = models.ForeignKey(Sell, on_delete=models.CASCADE)
+    payment = models.IntegerField()
+    comment = models.CharField(max_length=200)

@@ -35,7 +35,6 @@ router.register("warehouse", WarehouseViewSet, basename="warehouse")
 router.register("measure", MeasureViewSet, basename="measure")
 router.register("client", ClientViewSet, basename="client")
 router.register('sell', SellViewSet, basename="sell")
-router.register("sellitem", SellItemViewSet, basename="sellitem")
 router.register("dealer", DealerViewSet, basename="dealer")
 router.register("cost", CostViewSet, basename="cost")
 router.register('staff', UserViewSet, basename="staff")
@@ -63,9 +62,11 @@ urlpatterns = [
     path('swagger(?P<format>\.json|\.yaml)', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-    path("payment/<int:a>/", Payment.as_view()),
+    path("payment/", PaymentView.as_view()),
+    path("hisob/<int:a>/", Hisoblash.as_view()),
     path("home/<str:a>/<str:b>/", MainView.as_view()),
     path("home/", MainView.as_view()),
+    path("sell-item/", SellItemViewSet.as_view()),
     path("new-product/<int:p>/<int:q>/", NewProduct.as_view()),
     path("archive/", Archive.as_view()),
     path("pay-client/", ClientPayView.as_view()),
